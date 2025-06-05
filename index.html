@@ -5,134 +5,229 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Proyecto Inclusivo</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
   <!-- Navbar -->
-  <nav class="bg-blue-700 text-white p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold">Proyecto Inclusivo</h1>
-      <ul class="flex space-x-4 text-sm">
-        <li><a href="#home" class="hover:underline">Inicio</a></li>
-        <li><a href="#movimientos" class="hover:underline">Movimientos</a></li>
-        <li><a href="#caso" class="hover:underline">Análisis de Caso</a></li>
-        <li><a href="#reclutamiento" class="hover:underline">Reclutamiento</a></li>
-        <li><a href="#kpi" class="hover:underline">Dashboard</a></li>
-        <li><a href="#reporte" class="hover:underline">Reporte</a></li>
-        <li><a href="#conclusiones" class="hover:underline">Conclusiones</a></li>
-        <li><a href="#bibliografia" class="hover:underline">Bibliografía</a></li>
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/120px-Octicons-mark-github.svg.png" alt="Logo" class="h-8 w-8">
+        <span class="text-lg font-bold text-blue-700">Proyecto Inclusivo</span>
+      </div>
+      <ul class="flex flex-wrap gap-4 text-sm text-gray-700">
+        <li><a href="#home" class="hover:text-blue-500">Inicio</a></li>
+        <li><a href="#movimientos" class="hover:text-blue-500">Movimientos</a></li>
+        <li><a href="#caso" class="hover:text-blue-500">Análisis</a></li>
+        <li><a href="#reclutamiento" class="hover:text-blue-500">Reclutamiento</a></li>
+        <li><a href="#kpi" class="hover:text-blue-500">KPIs</a></li>
+        <li><a href="#reporte" class="hover:text-blue-500">Reporte</a></li>
+        <li><a href="#conclusiones" class="hover:text-blue-500">Conclusiones</a></li>
+        <li><a href="#bibliografia" class="hover:text-blue-500">Bibliografía</a></li>
       </ul>
     </div>
   </nav>
 
-<div class="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
-  <div class="absolute inset-0">
-    <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxjb2RlfGVufDB8MHx8fDE2OTQwOTg0MTZ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Background Image" class="object-cover object-center w-full h-full" />
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-  </div>
-  
-  <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
-    <h1 class="text-5xl font-bold leading-tight mb-4">Propuesta de Liderazgo</h1>
-    <p class="text-lg text-gray-300 mb-8">Discover amazing features and services that await you.</p>
-    <a href="#" class="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Get Started</a>
-  </div>
-</div>
+ <section id="home" class="py-16 bg-gradient-to-br from-blue-100 to-blue-50">
+    <div class="container mx-auto text-center px-4">
+      <h1 class="text-3xl font-bold mb-4 text-blue-800">Proyecto de Inclusión Laboral</h1>
+      <p class="text-lg max-w-2xl mx-auto text-gray-700">Este proyecto analiza el impacto de los movimientos sociales, evalúa un caso empresarial y propone acciones medibles hacia una mayor inclusión en el ámbito laboral.</p>
+    </div>
+  </section>
 
-  <!-- Línea de tiempo -->
-  <section id="movimientos" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-6">Movimientos Sociales y Marco Normativo</h2>
-    <div class="space-y-6">
-      <!-- Hito ejemplo -->
-      <div class="border-l-4 border-blue-500 pl-4">
-        <h3 class="font-semibold">2000 - Ley Federal para Prevenir la Discriminación</h3>
-        <p>Establece la igualdad y no discriminación como base de los derechos humanos.</p>
+
+  <hr class="my-10 border-gray-300">
+
+<ol class="relative border-s border-gray-200">
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">1917</time>
+        <h3 class="text-lg font-semibold text-gray-900">Artículos 1, 2 y 123 de la Constitución</h3>
+        <p class="text-base font-normal text-gray-500">Base legal contra la discriminación, derechos indígenas y condiciones laborales justas.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">1975</time>
+        <h3 class="text-lg font-semibold text-gray-900">Conferencia Mundial sobre la Mujer, México</h3>
+        <p class="text-base font-normal text-gray-500">Promoción de equidad de género y participación femenina en el trabajo.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2001</time>
+        <h3 class="text-lg font-semibold text-gray-900">Creación de INMUJERES</h3>
+        <p class="text-base font-normal text-gray-500">Organismo para promover igualdad de género y empoderamiento femenino.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2003</time>
+        <h3 class="text-lg font-semibold text-gray-900">Ley General para Prevenir y Eliminar la Discriminación</h3>
+        <p class="text-base font-normal text-gray-500">Políticas antidiscriminatorias y capacitación en derechos humanos en empresas.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2006</time>
+        <h3 class="text-lg font-semibold text-gray-900">Ley General para la Igualdad entre Mujeres y Hombres</h3>
+        <p class="text-base font-normal text-gray-500">Promoción de liderazgos igualitarios y prohibición de discriminación en contratación.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2007</time>
+        <h3 class="text-lg font-semibold text-gray-900">Ratificación de la CDPD</h3>
+        <p class="text-base font-normal text-gray-500">Políticas de inclusión, accesibilidad y no discriminación en el empleo.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2009</time>
+        <h3 class="text-lg font-semibold text-gray-900">Aprobación del matrimonio igualitario</h3>
+        <p class="text-base font-normal text-gray-500">Acceso a prestaciones laborales y beneficios conyugales para parejas del mismo sexo.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2011–2025</time>
+        <h3 class="text-lg font-semibold text-gray-900">Constitución, Artículos 3 y 4</h3>
+        <p class="text-base font-normal text-gray-500">Igualdad de género y derecho a la no discriminación.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2015</time>
+        <h3 class="text-lg font-semibold text-gray-900">NMX-R-025-SCFI-2015</h3>
+        <p class="text-base font-normal text-gray-500">Requisitos para prácticas de desarrollo equitativo en centros de trabajo.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2018</time>
+        <h3 class="text-lg font-semibold text-gray-900">Ley General para la Inclusión de las Personas con Discapacidad</h3>
+        <p class="text-base font-normal text-gray-500">Accesibilidad universal e igualdad de oportunidades para personas con discapacidad.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2019</time>
+        <h3 class="text-lg font-semibold text-gray-900">NOM-035-STPS-2018</h3>
+        <p class="text-base font-normal text-gray-500">Evaluación de riesgos psicosociales y promoción de un entorno laboral saludable.</p>
+    </li>
+    <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2019</time>
+        <h3 class="text-lg font-semibold text-gray-900">Ley de Igualdad Laboral (CDMX)</h3>
+        <p class="text-base font-normal text-gray-500">Equidad en acceso, permanencia y condiciones laborales en la Ciudad de México.</p>
+    </li>
+    <li class="ms-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">2024</time>
+        <h3 class="text-lg font-semibold text-gray-900">Constitución, Artículo 4</h3>
+        <p class="text-base font-normal text-gray-500">Igualdad sustantiva de mujeres y hombres ante la ley.</p>
+    </li>
+</ol>
+
+  <hr class="my-10 border-gray-300">
+
+  <!-- Análisis de Caso -->
+  <section id="caso" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6 text-blue-800">Análisis de Caso: Empresa XYZ</h2>
+      <div class="bg-gray-100 rounded-lg p-6 shadow-sm space-y-2">
+        <p><strong>✅ Fortalezas:</strong> Cultura de diversidad consolidada, entrenamiento continuo.</p>
+        <p><strong>⚠️ Áreas de Mejora:</strong> Falta de métricas claras para seguimiento.</p>
+        <p><strong>🎯 Recomendación:</strong> Implementar dashboards de inclusión y auditorías trimestrales.</p>
       </div>
-      <!-- Repite esto 8 veces con diferentes años/hitos -->
-      <!-- Agrega más hitos aquí -->
     </div>
   </section>
 
-  <!-- Análisis de caso -->
-  <section id="caso" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-4">Análisis de Caso: Empresa XYZ</h2>
-    <p><strong>Fortalezas:</strong> Políticas inclusivas y formación continua.</p>
-    <p><strong>Áreas de Mejora:</strong> Falta de indicadores de seguimiento.</p>
-    <p><strong>Recomendación:</strong> Reforzar métricas de inclusión con paneles de monitoreo mensuales.</p>
-  </section>
+  <hr class="my-10 border-gray-300">
 
-  <!-- Reclutamiento inclusivo -->
-  <section id="reclutamiento" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-4">Oferta de Reclutamiento Inclusivo</h2>
-    <div class="bg-white p-4 rounded shadow">
-      <p><strong>Vacante:</strong> Analista de Diversidad e Inclusión</p>
-      <ul class="mt-4 space-y-2">
-        <li><input type="checkbox" class="mr-2">Lenguaje inclusivo</li>
-        <li><input type="checkbox" class="mr-2">Accesibilidad para discapacidades</li>
-        <li><input type="checkbox" class="mr-2">Proceso anónimo</li>
-        <li><input type="checkbox" class="mr-2">Entrevistas flexibles</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Dashboard KPIs -->
-  <section id="kpi" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-4">Dashboard de KPIs</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Simulación de gráfica -->
-      <div class="bg-white p-4 rounded shadow text-center">
-        <p class="font-semibold mb-2">Porcentaje de contratación inclusiva</p>
-        <div class="h-32 bg-blue-100 flex items-center justify-center">[Gráfica]</div>
+   <!-- Reclutamiento Inclusivo -->
+  <section id="reclutamiento" class="py-12 container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-blue-800">Oferta de Reclutamiento Inclusivo</h2>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+      <p class="mb-4 font-semibold">Vacante: Coordinador de Inclusión</p>
+      <div class="grid gap-2">
+        <label><input type="checkbox" class="mr-2"> Publicación accesible</label>
+        <label><input type="checkbox" class="mr-2"> Lenguaje inclusivo</label>
+        <label><input type="checkbox" class="mr-2"> Proceso de selección anónimo</label>
+        <label><input type="checkbox" class="mr-2"> Revisión sin sesgo</label>
       </div>
-      <!-- Repite 5 veces para otros indicadores -->
-      <!-- Indicador 2, 3, etc. -->
     </div>
   </section>
 
-  <!-- Reporte interno -->
-  <section id="reporte" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-4">Reporte Interno y Plan de Mejora</h2>
-    <div class="bg-white p-6 rounded shadow mb-6">
-      <p><strong>Boletín:</strong> <em>Resumen del avance en inclusión laboral, cambios normativos, acciones recientes.</em></p>
+  <hr class="my-10 border-gray-300">
+
+<!-- KPIs -->
+  <section id="kpi" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6 text-blue-800">Dashboard de KPIs</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Indicador -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <p class="font-semibold mb-2">% Contrataciones Inclusivas</p>
+          <div class="h-32 bg-blue-100 rounded flex items-center justify-center">[Gráfica]</div>
+        </div>
+        <!-- Más indicadores -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <p class="font-semibold mb-2">Tasa de Retención</p>
+          <div class="h-32 bg-blue-100 rounded flex items-center justify-center">[Gráfica]</div>
+        </div>
+      </div>
     </div>
-    <table class="table-auto w-full text-left bg-white rounded shadow">
-      <thead>
-        <tr class="bg-gray-200">
-          <th class="p-2">Acción</th>
-          <th class="p-2">Responsable</th>
-          <th class="p-2">Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="p-2">Capacitación en diversidad</td>
-          <td class="p-2">RRHH</td>
-          <td class="p-2">15/06/2025</td>
-        </tr>
-        <!-- Más acciones -->
-      </tbody>
-    </table>
   </section>
 
-  <!-- Conclusiones -->
-  <section id="conclusiones" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-4">Conclusiones y Recomendaciones</h2>
-    <p>El proyecto evidenció el impacto positivo de la inclusión laboral con métricas claras y propuestas adaptadas a cada organización. Se recomienda institucionalizar estos procesos y fomentar su monitoreo continuo.</p>
+  <hr class="my-10 border-gray-300">
+
+ <!-- Reporte interno -->
+  <section id="reporte" class="py-12 container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-blue-800">Reporte Interno y Plan de Mejora</h2>
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+      <h3 class="font-semibold mb-2">Boletín Interno</h3>
+      <p>Resumen de acciones, cambios de normativa y logros recientes.</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse bg-white rounded shadow">
+        <thead class="bg-blue-100 text-left">
+          <tr>
+            <th class="p-2">Acción</th>
+            <th class="p-2">Responsable</th>
+            <th class="p-2">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-2">Capacitación sobre lenguaje inclusivo</td>
+            <td class="p-2">RRHH</td>
+            <td class="p-2">10/06/2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <!-- Bibliografía -->
-  <section id="bibliografia" class="py-10 container mx-auto">
-    <h2 class="text-xl font-bold mb-4">Bibliografía y Recursos</h2>
-    <ul class="list-disc ml-6 space-y-2">
+  <hr class="my-10 border-gray-300">
+
+
+   <!-- Conclusiones -->
+  <section id="conclusiones" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4 text-blue-800">Conclusiones y Recomendaciones</h2>
+      <p>El análisis revela que la inclusión no solo mejora la cultura organizacional, sino también la productividad. Se recomienda establecer métricas claras, auditorías periódicas y programas de sensibilización continua.</p>
+    </div>
+  </section>
+
+  <hr class="my-10 border-gray-300">
+
+    <!-- Bibliografía -->
+  <section id="bibliografia" class="py-12 container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-4 text-blue-800">Bibliografía y Recursos</h2>
+    <ul class="list-disc ml-6 space-y-2 text-sm text-gray-700">
       <li>Norma Oficial Mexicana NOM-034-STPS-2016</li>
-      <li>INEGI, Encuesta Nacional de Discriminación</li>
-      <li>https://inclusionlaboral.gob.mx</li>
+      <li>INEGI – Encuesta Nacional de Discriminación</li>
+      <li><a href="https://inclusionlaboral.gob.mx" class="text-blue-500 hover:underline">inclusionlaboral.gob.mx</a></li>
       <li>Manual de Buenas Prácticas – ONU Mujeres</li>
     </ul>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-700 text-white p-4 text-center">
-    Proyecto académico – Todos los derechos reservados © 2025
+  <footer class="bg-blue-800 text-white text-center py-4">
+    <p>© 2025 Proyecto Inclusivo – Todos los derechos reservados.</p>
   </footer>
 
 </body>
