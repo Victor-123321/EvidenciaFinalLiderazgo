@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proyecto Inclusivo</title>
+  <title>Proyecto Inclusivo - Equipo V</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -14,58 +15,89 @@
   <link rel="manifest" href="/site.webmanifest">
 
 </head>
+<style>
+  .animate-in {
+  opacity: 0;
+  transform: translateY(5%);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 <body class="bg-gray-100 text-gray-900">
 
-  <!-- Navbar -->
+<!-- Navbar -->
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-2">
         <img src="Media/Inclusividad.png" alt="Logo" class="h-8 w-8">
-        <span class="text-lg font-bold text-blue-700">Proyecto Inclusivo</span>
+        <span class="text-lg font-bold text-blue-700">Proyecto Inclusivo - Equipo V</span>
       </div>
-      <ul class="flex flex-wrap gap-4 text-sm text-gray-700">
-        <li><a href="#home" class="hover:text-blue-500">Inicio</a></li>
-        <li><a href="#movimientos" class="hover:text-blue-500">Movimientos</a></li>
-        <li><a href="#caso" class="hover:text-blue-500">Análisis</a></li>
-        <li><a href="#reclutamiento" class="hover:text-blue-500">Reclutamiento</a></li>
-        <li><a href="#kpi" class="hover:text-blue-500">KPIs</a></li>
-        <li><a href="#reporte" class="hover:text-blue-500">Reporte</a></li>
-        <li><a href="#conclusiones" class="hover:text-blue-500">Conclusiones</a></li>
-        <li><a href="#bibliografia" class="hover:text-blue-500">Bibliografía</a></li>
-      </ul>
+      <!-- Hamburger Menu Button (Mobile) -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="hamburger-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <!-- Navigation Links -->
+      <div id="mobile-menu" class="hidden md:flex md:items-center md:gap-4 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none transition-transform duration-300 transform -translate-y-4 md:translate-y-0 z-40">
+        <ul class="flex flex-col md:flex-row gap-4 text-sm text-gray-700 p-4 md:p-0">
+          <li><a href="#home" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Inicio</a></li>
+          <li><a href="#linea" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Linea de Tiempo</a></li>
+          <li><a href="#caso" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Análisis</a></li>
+          <li><a href="#reclutamiento" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Reclutamiento</a></li>
+          <li><a href="#kpi" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">KPIs</a></li>
+          <li><a href="#reporte" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Reporte</a></li>
+          <li><a href="#conclusiones" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Conclusiones</a></li>
+          <li><a href="#bibliografia" class="hover:text-blue-500 block py-2 md:py-0" onclick="closeMenu()">Bibliografía</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
- <div class="relative h-screen w-full flex items-center justify-start text-left bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);">
-  <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
-  
-  <main class="px-10 lg:px-24 z-10">
-        <div class="text-left">
-          <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl">
-            Liderazgo
-            <span class="text-indigo-600">Inclusivo</span>
-          </h2>
-          <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light">
-            Apuntando a crear un mundo consciente, inclusivo y justo.
-          </p>
-          <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light">
-            Equipo V
-          </p>
-        </div>
-      </main>
-</div>
+  <div id="inicio" class="relative h-screen w-full flex items-center justify-start text-left bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1531844251246-9a1bfaae09fc?q=80&w=2116&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
+    <main class="px-10 lg:px-24 z-10">
+      <div class="text-left">
+        <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl animate-in">
+          Liderazgo
+          <span class="text-indigo-600">Inclusivo</span>
+        </h2>
+        <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light">
+          Apuntando a crear un mundo consciente, inclusivo y justo.
+        </p>
+        <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light">
+          Equipo V
+        </p>
+        <ul>
+          <li class="text-md font-light text-white my-2">- Eilyn Stephanie Reséndez Márquez</li>
+          <li class="text-md font-light text-white my-2">- Sebastián Aguilar Castro</li>
+          <li class="text-md font-light text-white my-2">- Jose Alfredo Vergara</li>
+          <li class="text-md font-light text-white my-2">- Víctor André Velázquez Salcido</li>
+          <li class="text-md font-light text-white my-2">- Juan Carlos Arévalo Gómez</li>
+          <li class="text-md font-light text-white my-2">- Nicté Ha Tuyin Cocom</li>
+        </ul>
+      </div>
+    </main>
+  </div>
 
-
-  <h1 class="my-10 border-gray-300 text-center text-4xl font-bold">
+  <h1 class="my-10 border-gray-300 text-center text-4xl font-bold animate-in">
     Línea del Tiempo
   </h1>
 
-<!-- Horizontal Timeline -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8">
+ <!-- Horizontal Timeline -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8 animate-in" id="linea">
     <div class="relative">
       <div class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-200 pb-4">
         <div class="flex space-x-6">
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-1917">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">1917</time>
@@ -74,7 +106,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-1975">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">1975</time>
@@ -83,7 +115,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2001">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2001</time>
@@ -92,7 +124,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2003">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2003</time>
@@ -101,7 +133,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2006">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2006</time>
@@ -110,7 +142,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2007">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2007</time>
@@ -119,7 +151,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2009">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2009</time>
@@ -128,7 +160,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2011">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2011–2025</time>
@@ -137,7 +169,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2015">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2015</time>
@@ -146,7 +178,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2018">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2018</time>
@@ -155,7 +187,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2019a">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2019</time>
@@ -164,7 +196,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2019b">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2019</time>
@@ -173,7 +205,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-shrink-0 w-64 snap-center">
+          <div class="flex-shrink-0 w-64 snap-center cursor-pointer" data-modal="modal-2024">
             <div class="relative bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[200px] flex flex-col justify-between">
               <div>
                 <time class="text-sm font-medium text-gray-400">2024</time>
@@ -187,68 +219,313 @@
       <!-- Timeline Line -->
       <div class="absolute top-0 left-0 w-full h-1 bg-indigo-600" style="top: -1rem;"></div>
     </div>
-  </section>
-</div>
 
-  <hr class="my-10 border-gray-300">
-
-<!-- Análisis de Caso -->
-<section id="caso" class="py-12 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-2xl font-bold mb-6 text-blue-800">Análisis de Caso: Grupo Modelo</h2>
-    <div class="bg-gray-100 rounded-lg p-6 shadow-sm space-y-2">
-      <p><strong>✅ Fortalezas:</strong> Programas como Summer Internship, Conectando Talento y alianzas con universidades (e.g., ETAC) para formación profesional. Cultura organizacional basada en respeto, inclusión y capacitación continua.</p>
-      <p><strong>⚠️ Áreas de Mejora:</strong> Falta de métricas claras para evaluar iniciativas DEI, alcance limitado en programas como Rebounce y Aguas Firmes, y ausencia de políticas específicas para grupos indígenas en regiones como Oaxaca.</p>
-      <p><strong>🎯 Recomendación:</strong> Implementar encuestas de satisfacción y métricas de clima laboral, ofrecer incentivos para Rebounce, expandir Aguas Firmes a nivel nacional, y desarrollar políticas de inclusión para comunidades indígenas.</p>
+    <!-- Modals -->
+    <div id="modal-1917" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-1917-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-1917-title" class="text-lg font-semibold text-gray-900">Artículos 1, 2 y 123 (1917)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Constitución de 1917 estableció la prohibición de la discriminación por raza, religión o género (Art. 1), reconoció derechos indígenas (Art. 2), y reguló condiciones laborales justas como salario mínimo y jornada de 8 horas (Art. 123), sentando las bases para entornos laborales inclusivos en Autopartes Norte. Estas disposiciones son fundamentales para garantizar la no discriminación en la contratación. Fuente: Constitución Política de los Estados Unidos Mexicanos (2024).</p>
+      </div>
     </div>
-  </div>
-</section>
-
-  <hr class="my-10 border-gray-300">
-
-   <!-- Reclutamiento Inclusivo -->
-  <section id="reclutamiento" class="py-12 container mx-auto px-4">
-    <h2 class="text-2xl font-bold mb-6 text-blue-800">Oferta de Reclutamiento Inclusivo</h2>
-    <div class="bg-white shadow-lg rounded-lg p-6">
-      <p class="mb-4 font-semibold">Vacante: Coordinador de Inclusión</p>
-      <div class="grid gap-2">
-        <label><input type="checkbox" class="mr-2"> Publicación accesible</label>
-        <label><input type="checkbox" class="mr-2"> Lenguaje inclusivo</label>
-        <label><input type="checkbox" class="mr-2"> Proceso de selección anónimo</label>
-        <label><input type="checkbox" class="mr-2"> Revisión sin sesgo</label>
+    <div id="modal-1975" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-1975-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-1975-title" class="text-lg font-semibold text-gray-900">Conferencia Mundial Mujer (1975)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Primera Conferencia Mundial sobre la Mujer en México impulsó la equidad de género, promoviendo la participación femenina en el trabajo y políticas contra la discriminación. Este evento inspiró iniciativas como la prioridad de Autopartes Norte a mujeres en roles técnicos. Fuente: ONU Mujeres (2020).</p>
+      </div>
+    </div>
+    <div id="modal-2001" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2001-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2001-title" class="text-lg font-semibold text-gray-900">Creación de INMUJERES (2001)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">El Instituto Nacional de las Mujeres (INMUJERES) se creó para promover la igualdad de género y el empoderamiento femenino mediante políticas públicas. Apoya las acciones afirmativas de Autopartes Norte, como priorizar mujeres en roles técnicos. Fuente: INMUJERES (2001).</p>
+      </div>
+    </div>
+    <div id="modal-2003" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2003-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2003-title" class="text-lg font-semibold text-gray-900">Ley Antidiscriminación (2003)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Ley Federal para Prevenir y Eliminar la Discriminación creó el CONAPRED, promoviendo políticas y capacitaciones contra la discriminación por género, etnia o discapacidad. Autopartes Norte alinea su cláusula de no discriminación con esta ley. Fuente: Ley Federal para Prevenir y Eliminar la Discriminación (2003).</p>
+      </div>
+    </div>
+    <div id="modal-2006" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2006-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2006-title" class="text-lg font-semibold text-gray-900">Ley Igualdad de Género (2006)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Ley General para la Igualdad entre Mujeres y Hombres fomenta liderazgos igualitarios y prohíbe la discriminación en contrataciones, apoyando las políticas de Autopartes Norte para priorizar mujeres en roles técnicos. Establece medidas para equilibrar oportunidades laborales. Fuente: Ley General para la Igualdad entre Mujeres y Hombres (2006).</p>
+      </div>
+    </div>
+    <div id="modal-2007" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2007-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2007-title" class="text-lg font-semibold text-gray-900">Ratificación CDPD (2007)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">México ratificó la Convención sobre los Derechos de las Personas con Discapacidad (CDPD), comprometiéndose a garantizar accesibilidad y no discriminación en el empleo. Esto respalda las medidas de accesibilidad de Autopartes Norte, como rampas y ajustes razonables. Fuente: CONAPRED (2021).</p>
+      </div>
+    </div>
+    <div id="modal-2009" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2009-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2009-title" class="text-lg font-semibold text-gray-900">Matrimonio Igualitario (2009)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La legalización del matrimonio igualitario en la Ciudad de México aseguró prestaciones y beneficios laborales para parejas del mismo sexo. Autopartes Norte adopta esta equidad en sus políticas de beneficios inclusivos. Fuente: Ley Igualdad Laboral CDMX (2019).</p>
+      </div>
+    </div>
+    <div id="modal-2011" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2011-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2011-title" class="text-lg font-semibold text-gray-900">Artículos 3 y 4 (2011–2025)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">Las reformas a los Artículos 3 y 4 de la Constitución refuerzan la igualdad de género y la no discriminación, promoviendo entornos educativos y laborales inclusivos. Autopartes Norte alinea sus capacitaciones DEI con estos principios. Fuente: Constitución Política de los Estados Unidos Mexicanos (2024).</p>
+      </div>
+    </div>
+    <div id="modal-2015" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2015-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2015-title" class="text-lg font-semibold text-gray-900">NMX-R-025-SCFI-2015 (2015)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Norma Mexicana NMX-R-025-SCFI-2015 establece prácticas equitativas en centros de trabajo, incluyendo lenguaje inclusivo y accesibilidad. Es la base del checklist de reclutamiento inclusivo de Autopartes Norte. Fuente: Norma Mexicana NMX-R-025-SCFI-2015 (2015).</p>
+      </div>
+    </div>
+    <div id="modal-2018" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2018-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2018-title" class="text-lg font-semibold text-gray-900">Ley Inclusión Discapacidad (2018)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Ley General para la Inclusión de las Personas con Discapacidad obliga a empresas a garantizar accesibilidad y ajustes razonables. Autopartes Norte implementa rampas y equipos ergonómicos en cumplimiento. Fuente: Ley General para la Inclusión de las Personas con Discapacidad (2018).</p>
+      </div>
+    </div>
+    <div id="modal-2019a" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2019a-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2019a-title" class="text-lg font-semibold text-gray-900">NOM-035-STPS-2018 (2019)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La NOM-035-STPS-2018 aborda riesgos psicosociales, promoviendo entornos laborales saludables mediante evaluaciones de clima laboral. Autopartes Norte usa estas guías para medir la inclusión percibida. Fuente: Norma Oficial Mexicana NOM-035-STPS-2018 (2018).</p>
+      </div>
+    </div>
+    <div id="modal-2019b" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2019b-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2019b-title" class="text-lg font-semibold text-gray-900">Ley Igualdad Laboral CDMX (2019)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La Ley de Igualdad Laboral en la Ciudad de México promueve equidad en acceso laboral y condiciones justas, especialmente para grupos vulnerables. Autopartes Norte aplica estas normas en sus procesos de contratación inclusiva. Fuente: Ley Igualdad Laboral CDMX (2019).</p>
+      </div>
+    </div>
+    <div id="modal-2024" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden transition-opacity duration-300 z-50" role="dialog" aria-labelledby="modal-2024-title">
+      <div class="bg-white rounded-lg p-6 max-w-lg w-full mx-4 transform transition-transform duration-300 scale-95">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-2024-title" class="text-lg font-semibold text-gray-900">Constitución, Artículo 4 (2024)</h3>
+          <button class="text-gray-500 hover:text-gray-700 close-modal" aria-label="Cerrar modal">✕</button>
+        </div>
+        <p class="text-base text-gray-600">La reforma al Artículo 4 refuerza la igualdad sustantiva entre mujeres y hombres, obligando a empresas a implementar políticas de equidad. Autopartes Norte alinea sus acciones afirmativas con este mandato. Fuente: Constitución Política de los Estados Unidos Mexicanos (2024).</p>
       </div>
     </div>
   </section>
 
   <hr class="my-10 border-gray-300">
 
-<!-- KPIs -->
-  <section id="kpi" class="py-12 bg-gray-50">
+  <!-- Análisis de Caso -->
+  <section id="caso" class="py-12 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-6 text-blue-800">Dashboard de KPIs</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Indicador -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <p class="font-semibold mb-2">% Contrataciones Inclusivas</p>
-          <div class="h-32 bg-blue-100 rounded flex items-center justify-center">[Gráfica]</div>
-        </div>
-        <!-- Más indicadores -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <p class="font-semibold mb-2">Tasa de Retención</p>
-          <div class="h-32 bg-blue-100 rounded flex items-center justify-center">[Gráfica]</div>
-        </div>
+      <h2 class="text-2xl font-bold mb-6 text-blue-800 animate-in">Análisis de Caso: Grupo Modelo</h2>
+      <div class="bg-gray-100 rounded-lg p-6 shadow-sm space-y-2 animate-in">
+        <p><strong>✅ Fortalezas:</strong> Programas como Summer Internship, Conectando Talento y alianzas con universidades (e.g., ETAC) para formación profesional. Cultura organizacional basada en respeto, inclusión y capacitación continua.</p>
+        <p><strong>⚠️ Áreas de Mejora:</strong> Falta de métricas claras para evaluar iniciativas DEI, alcance limitado en programas como Rebounce y Aguas Firmes, y ausencia de políticas específicas para grupos indígenas en regiones como Oaxaca.</p>
+        <p><strong>🎯 Recomendación:</strong> Implementar encuestas de satisfacción y métricas de clima laboral, ofrecer incentivos para Rebounce, expandir Aguas Firmes a nivel nacional, y desarrollar políticas de inclusión para comunidades indígenas.</p>
       </div>
     </div>
   </section>
 
   <hr class="my-10 border-gray-300">
 
- <!-- Reporte interno -->
+  <!-- Reclutamiento Inclusivo -->
+  <section id="reclutamiento" class="py-12 container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-blue-800 animate-in">Oferta de Reclutamiento Inclusivo</h2>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+      <p class="mb-4 font-semibold">Vacante: Técnica de Línea de Ensamble – Planta Monterrey</p>
+      <p class="mb-4"><strong>Empresa:</strong> Autopartes Norte</p>
+      <p class="mb-4"><strong>Ubicación:</strong> Parque Industrial Apodaca, Monterrey, Nuevo León</p>
+      <p class="mb-4"><strong>Modalidad:</strong> Presencial, con horarios flexibles</p>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Perfil del puesto</h3>
+      <p class="mb-4">Buscamos personas con interés en integrarse a nuestro equipo de producción, desempeñando un rol clave en la operación de líneas de ensamble. Valoramos el compromiso con el aprendizaje, la colaboración y la mejora continua.</p>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Responsabilidades clave:</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Ejecutar procesos de ensamblaje de autopartes conforme a los estándares de calidad y seguridad.</li>
+        <li>Participar activamente en programas de capacitación técnica y de seguridad industrial.</li>
+        <li>Colaborar en la identificación de mejoras para hacer el entorno más seguro, accesible y eficiente.</li>
+      </ul>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Requisitos:</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Formación técnica en mecánica, mecatrónica, electromecánica o afines.</li>
+        <li>Experiencia previa en ambientes industriales o de manufactura (deseable).</li>
+        <li>Capacidad para trabajar en equipo y seguir instrucciones técnicas.</li>
+        <li>Actitud de aprendizaje continuo y apertura a procesos inclusivos.</li>
+      </ul>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Cláusula de No Discriminación</h3>
+      <p class="mb-4">En Autopartes Norte promovemos espacios laborales inclusivos. Esta vacante está abierta a personas de cualquier género, edad, orientación sexual, religión, condición migratoria o discapacidad.</p>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Acciones afirmativas</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Se dará prioridad a candidaturas de mujeres interesadas en roles técnicos.</li>
+        <li>Se fomentará la inclusión de personas con discapacidad, brindando ajustes razonables conforme a sus necesidades.</li>
+      </ul>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Beneficios</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Capacitación continua: 4 programas anuales sobre seguridad industrial y nuevas sesiones en temas de inclusión, accesibilidad y equidad.</li>
+        <li>Oportunidades de desarrollo: Planes de carrera y promoción interna.</li>
+      </ul>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Medidas de accesibilidad</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Proceso de selección con ajustes razonables disponibles desde la postulación.</li>
+        <li>Compromiso de implementar adaptaciones físicas: rampas de acceso, señalización inclusiva y equipos ergonómicos (actualmente en expansión).</li>
+        <li>Opción de horarios flexibles y pausas adaptadas para personal con requerimientos específicos.</li>
+      </ul>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">Checklist de Inclusión NMX-R-025</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse bg-white rounded shadow">
+          <thead class="bg-blue-100 text-left">
+            <tr>
+              <th class="p-2">Item</th>
+              <th class="p-2">Cumplido</th>
+              <th class="p-2">Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-2">Lenguaje neutral sin referencias a edad o género</td>
+              <td class="p-2">✓</td>
+              <td class="p-2">Evita sesgos en adjetivos y redacción</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">Cláusula de no discriminación</td>
+              <td class="p-2">✓</td>
+              <td class="p-2">Amplia y explícita</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">Acciones afirmativas especificadas</td>
+              <td class="p-2">✓</td>
+              <td class="p-2">Mujeres en roles técnicos y personas con discapacidad</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">Requisitos claros sin requisitos excluyentes</td>
+              <td class="p-2">✓</td>
+              <td class="p-2">No se usan términos como “joven”, “dinámico”, etc.</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">Medidas de accesibilidad descritas</td>
+              <td class="p-2">✓</td>
+              <td class="p-2">Incluye tanto físicas como organizacionales</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-10 border-gray-300">
+
+  <!-- KPIs -->
+  <section id="kpi" class="py-8 sm:py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-blue-800 animate-in">Dashboard de KPIs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <!-- Indicador 1 -->
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow animate-in">
+          <p class="font-semibold mb-2 text-base sm:text-lg">% de Mujeres en Roles Técnicos</p>
+          <div class="h-48 sm:h-64 w-full">
+            <canvas id="womenTechnicalRolesChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+        <!-- Indicador 2 -->
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow animate-in">
+          <p class="font-semibold mb-2 text-base sm:text-lg">% Entorno Inclusivo</p>
+          <div class="h-48 sm:h-64 w-full">
+            <canvas id="inclusiveEnvironmentChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+        <!-- Indicador 3 -->
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow animate-in">
+          <p class="font-semibold mb-2 text-base sm:text-lg">Prom. Horas Entrenamiento DEI</p>
+          <div class="h-48 sm:h-64 w-full">
+            <canvas id="deiTrainingHoursChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+        <!-- Indicador 4 -->
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow animate-in">
+          <p class="font-semibold mb-2 text-base sm:text-lg">% Ofertas de Empleo Inclusivas</p>
+          <div class="h-48 sm:h-64 w-full">
+            <canvas id="inclusiveJobPostingsChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+        <!-- Indicador 5 -->
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow animate-in">
+          <p class="font-semibold mb-2 text-base sm:text-lg">% Peticiones de Accesibilidad Completadas</p>
+          <div class="h-48 sm:h-64 w-full">
+            <canvas id="accessibilityRequestsChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+      </div>
+      <h3 class="text-base sm:text-lg font-semibold mt-4 sm:mt-6 mb-2 animate-in">Beneficios para Stakeholders</h3>
+      <ul class="list-disc pl-4 sm:pl-5 mb-4 text-sm sm:text-base animate-in">
+        <li><strong>Comunidad:</strong> Estos KPIs permiten a Autopartes Norte diseñar programas de inclusión que fortalecen la relación con comunidades locales, promoviendo un entorno laboral diverso y respetuoso.</li>
+        <li><strong>Empleados:</strong> Los indicadores fomentan un ambiente inclusivo mediante capacitaciones DEI y medidas de accesibilidad, mejorando la satisfacción y el sentido de pertenencia del personal.</li>
+        <li><strong>Proveedores:</strong> Monitorear la inclusividad en contrataciones y accesibilidad facilita incorporar proveedores diversos, promoviendo relaciones comerciales equitativas.</li>
+        <li><strong>Inversionistas:</strong> Las iniciativas DEI respaldadas por métricas claras atraen a inversionistas interesados en empresas con responsabilidad social.</li>
+        <li><strong>Socios estratégicos:</strong> Los datos de inclusión permiten a Autopartes Norte colaborar con ONGs y entidades gubernamentales en proyectos que beneficien a grupos subrepresentados.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="my-10 border-gray-300">
+
+  <!-- Reporte interno -->
   <section id="reporte" class="py-12 container mx-auto px-4">
-    <h2 class="text-2xl font-bold mb-6 text-blue-800">Reporte Interno y Plan de Mejora</h2>
+    <h2 class="text-2xl font-bold mb-6 text-blue-800 animate-in">Reporte Interno y Plan de Mejora</h2>
     <div class="bg-white p-6 rounded-lg shadow mb-6">
       <h3 class="font-semibold mb-2">Boletín Interno</h3>
-      <p>Resumen de acciones, cambios de normativa y logros recientes.</p>
+      <p>
+        En seguimiento a los compromisos institucionales con la equidad, la inclusión y la mejora continua de nuestras políticas internas, se llevó a cabo una revisión exhaustiva del marco normativo vigente, con especial atención al lenguaje utilizado en los reglamentos, manuales y protocolos de comunicación. Esta revisión responde al objetivo de garantizar que todas las personas, sin distinción de género, orientación, identidad o expresión, se sientan representadas y respetadas en los documentos oficiales y en las interacciones diarias dentro de la organización.
+      </p>
+      <p class="mt-4">
+        A partir de un análisis transversal de los documentos normativos, se detectaron expresiones y formulaciones que podrían reproducir sesgos o excluir a determinados grupos. En respuesta, el Comité de Ética y la Dirección Jurídica elaboraron una propuesta de actualización que contempla el uso de lenguaje inclusivo, respetando al mismo tiempo la claridad jurídica y la coherencia normativa.
+      </p>
+      <p class="mt-4">
+        Como resultado de este esfuerzo, se implementaron las siguientes acciones: actualización del Código de Ética, revisión y modificación del reglamento interno, elaboración de una guía práctica de comunicación inclusiva y capacitación obligatoria para todas las áreas en materia de lenguaje respetuoso e incluyente. Estas acciones fueron aprobadas por la Dirección General y comunicadas a todo el personal a través de circulares internas.
+      </p>
+      <p class="mt-4">
+        Asimismo, se habilitó un buzón físico y digital de sugerencias para recoger de forma anónima opiniones y propuestas del personal respecto al uso del lenguaje y a cualquier práctica institucional que pueda mejorarse desde un enfoque de derechos humanos. Esta herramienta ha permitido identificar oportunidades adicionales de intervención que se integrarán en el plan de mejora continua.
+      </p>
+      <p class="mt-4">
+        El próximo paso consistirá en auditar la implementación efectiva de los nuevos lineamientos, así como en incluir criterios de comunicación inclusiva en los procesos de inducción y evaluación de desempeño del personal. Esta medida busca institucionalizar buenas prácticas que trasciendan más allá de los lineamientos formales y se reflejen en la cultura organizacional cotidiana.
+      </p>
+      <p class="mt-4">
+        Agradecemos la participación activa de todas las áreas y reiteramos nuestro compromiso con una institución más equitativa, moderna y sensible a las transformaciones sociales actuales. La inclusión no es solo una política, sino un principio que guía cada uno de nuestros actos.
+      </p>
     </div>
     <div class="overflow-x-auto">
       <table class="w-full text-sm border-collapse bg-white rounded shadow">
@@ -261,9 +538,29 @@
         </thead>
         <tbody>
           <tr class="border-b">
+            <td class="p-2">Actualización del Código de Ética para incluir lenguaje inclusivo</td>
+            <td class="p-2">Comité de Ética</td>
+            <td class="p-2">03/06/2025</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-2">Revisión y ajuste del reglamento interno para eliminar sesgos de género</td>
+            <td class="p-2">Dirección Jurídica</td>
+            <td class="p-2">05/06/2025</td>
+          </tr>
+          <tr class="border-b">
             <td class="p-2">Capacitación sobre lenguaje inclusivo</td>
             <td class="p-2">RRHH</td>
             <td class="p-2">10/06/2025</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-2">Creación de guía práctica de comunicación inclusiva</td>
+            <td class="p-2">Comunicación Institucional</td>
+            <td class="p-2">12/06/2025</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-2">Implementación de buzón de sugerencias para mejoras en lenguaje</td>
+            <td class="p-2">Dirección General</td>
+            <td class="p-2">15/06/2025</td>
           </tr>
         </tbody>
       </table>
@@ -272,32 +569,283 @@
 
   <hr class="my-10 border-gray-300">
 
-
-   <!-- Conclusiones -->
-  <section id="conclusiones" class="py-12 bg-white">
-    <div class="container mx-auto px-4">
+  <!-- Conclusiones -->
+  <section id="conclusiones" class="py-12 bg-white max-w-screen">
+    <div class="container md:mx-auto max-w-full px-4">
       <h2 class="text-2xl font-bold mb-4 text-blue-800">Conclusiones y Recomendaciones</h2>
-      <p>El análisis revela que la inclusión no solo mejora la cultura organizacional, sino también la productividad. Se recomienda establecer métricas claras, auditorías periódicas y programas de sensibilización continua.</p>
+      <p class="mb-4">A lo largo de la realización del proyecto, se llegó a la conclusión de que, aunque existen avances significativos en la implementación de políticas de Diversidad, Equidad e Inclusión (DEI) en Autopartes Norte, la inclusión sigue siendo un área de oportunidad clave para mejorar tanto la cultura organizacional como el impacto social de la empresa. El análisis realizado demostró que la inclusión no solo fortalece la cultura organizacional, sino que también tiene un impacto positivo en el bienestar de los empleados, la productividad y la relación con las comunidades locales.</p>
+      <p class="mb-4">La implementación de una oferta de reclutamiento inclusivo, respaldada por la norma NMX-R-025-SCFI-2015, asegura que Autopartes Norte promueva un entorno laboral accesible y equitativo, priorizando grupos subrepresentados como mujeres en roles técnicos y personas con discapacidad. Los KPIs diseñados permiten medir el progreso en representación, inclusión, capacitación, reclutamiento y accesibilidad, proporcionando datos concretos para evaluar y ajustar las estrategias DEI.</p>
+      <p class="mb-4">Por ello, recomendamos establecer medidas más claras y estrictas para la aplicación de políticas DEI, incluyendo auditorías periódicas para verificar el cumplimiento de los lineamientos, programas de sensibilización continua para todo el personal y la institucionalización de métricas como los KPIs presentados. Estas acciones no solo fomentan un entorno laboral sano, sino que también posicionan a Autopartes Norte como un referente en responsabilidad social, atrayendo talento diverso, socios estratégicos e inversionistas comprometidos con la equidad.</p>
+      <p>En conclusión, la inclusión es un pilar estratégico que trasciende las políticas formales y se refleja en la cultura diaria de la empresa, contribuyendo a un entorno laboral más justo y a una sociedad más equitativa.</p>
     </div>
   </section>
 
   <hr class="my-10 border-gray-300">
 
-    <!-- Bibliografía -->
+ <!-- Bibliografía -->
   <section id="bibliografia" class="py-12 container mx-auto px-4">
     <h2 class="text-2xl font-bold mb-4 text-blue-800">Bibliografía y Recursos</h2>
-    <ul class="list-disc ml-6 space-y-2 text-sm text-gray-700">
-      <li>Norma Oficial Mexicana NOM-034-STPS-2016</li>
-      <li>INEGI – Encuesta Nacional de Discriminación</li>
-      <li><a href="https://inclusionlaboral.gob.mx" class="text-blue-500 hover:underline">inclusionlaboral.gob.mx</a></li>
-      <li>Manual de Buenas Prácticas – ONU Mujeres</li>
-    </ul>
+    <div class="space-y-4 text-sm text-gray-700">
+      <h3 class="text-lg font-semibold">Leyes y Artículos Constitucionales</h3>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Constitución Política de los Estados Unidos Mexicanos. (2024). Artículos 1, 2, 3, 4, y 123. Cámara de Diputados del H. Congreso de la Unión. México. Recuperado de <a href="http://www.diputados.gob.mx/LeyesBiblio/htm/1.htm" class="text-blue-500 hover:underline text-wrap">diputados.gob.mx/LeyesBiblio</a>. (Base legal para la no discriminación, derechos indígenas, condiciones laborales, y equidad de género).</li>
+        <li>Ley General para la Igualdad entre Mujeres y Hombres. (2006). Secretaría de Gobernación. México. Recuperado de <a href="http://www.diputados.gob.mx/LeyesBiblio/pdf/LGIMH.pdf" class="text-blue-500 hover:underline text-wrap">iputados.gob.mx/LeyesBiblio/pdf/LGIMH.pdf</a>. (Promueve liderazgos igualitarios y no discriminación en contratación).</li>
+        <li>Ley Federal para Prevenir y Eliminar la Discriminación. (2003). Secretaría de Gobernación. México. Recuperado de <a href="http://www.diputados.gob.mx/LeyesBiblio/pdf/262.pdf" class="text-blue-500 hover:underline text-wrap">diputados.gob.mx/LeyesBiblio/pdf/262.pdf</a>. (Establece políticas antidiscriminatorias y capacitación en derechos humanos).</li>
+        <li>Ley General para la Inclusión de las Personas con Discapacidad. (2018). Secretaría de Gobernación. México. Recuperado de <a href="http://www.diputados.gob.mx/LeyesBiblio/pdf/LGIPD.pdf" class="text-blue-500 hover:underline text-wrap">diputados.gob.mx/LeyesBiblio/pdf/LGIPD.pdf</a>. (Garantiza accesibilidad e igualdad para personas con discapacidad).</li>
+        <li>Ley de Igualdad Laboral de la Ciudad de México. (2019). Gaceta Oficial de la Ciudad de México. México. (Fomenta equidad en acceso y condiciones laborales).</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold mt-4">Normas Oficiales Mexicanas</h3>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Norma Oficial Mexicana NOM-034-STPS-2016. Condiciones de seguridad para el acceso y desarrollo de actividades de trabajadores con discapacidad en los centros de trabajo. Secretaría del Trabajo y Previsión Social. México. Recuperado de <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5459268&fecha=08/11/2016" class="text-blue-500 hover:underline">https://www.dof.gob.mx</a>. (Guía las medidas de accesibilidad en el lugar de trabajo).</li>
+        <li>Norma Oficial Mexicana NOM-035-STPS-2018. Factores de riesgo psicosocial en el trabajo-Identificación, análisis y prevención. Secretaría del Trabajo y Previsión Social. México. Recuperado de <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5541828&fecha=23/10/2018" class="text-blue-500 hover:underline">https://www.dof.gob.mx</a>. (Aborda riesgos psicosociales y entornos laborales saludables).</li>
+        <li>Norma Mexicana NMX-R-025-SCFI-2015. En Igualdad Laboral y No Discriminación. Secretaría de Economía. México. Recuperado de <a href="https://www.gob.mx/cms/uploads/attachment/file/141283/NMX-R-025-SCFI-2015.pdf" class="text-blue-500 hover:underline">https://www.gob.mx</a>. (Estándar para prácticas equitativas en centros de trabajo, base del checklist de reclutamiento).</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold mt-4">Reportes y Encuestas</h3>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>INEGI. (2020). Encuesta Nacional sobre Discriminación (ENADIS). Instituto Nacional de Estadística y Geografía. México. Recuperado de <a href="https://www.inegi.org.mx/programas/enadis/2020/" class="text-blue-500 hover:underline">https://www.inegi.org.mx/programas/enadis/2020/</a>. (Proporciona datos sobre discriminación en México, relevante para KPIs de inclusión).</li>
+        <li>INEGI. (2020). Censo de Población y Vivienda 2020. Instituto Nacional de Estadística y Geografía. México. Recuperado de <a href="https://www.inegi.org.mx/programas/ccpv/2020/" class="text-blue-500 hover:underline">https://www.inegi.org.mx/programas/ccpv/2020/</a>. (Fuente de datos demográficos para análisis de representación).</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold mt-4">Recursos y Guías</h3>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>ONU Mujeres. (2020). Manual de Buenas Prácticas para la Igualdad de Género en el Ámbito Laboral. Entidad de las Naciones Unidas para la Igualdad de Género y el Empoderamiento de las Mujeres. Recuperado de <a href="https://www.onumujeres.org.mx/" class="text-blue-500 hover:underline">https://www.onumujeres.org.mx/</a>. (Guía para implementar prácticas de equidad de género).</li>
+        <li>CONAPRED. (2021). Guía para la Inclusión Laboral de Personas con Discapacidad. Consejo Nacional para Prevenir la Discriminación. México. Recuperado de <a href="https://www.conapred.org.mx/" class="text-blue-500 hover:underline">https://www.conapred.org.mx/</a>. (Orientación para accesibilidad y no discriminación).</li>
+        <li>Inclusión Laboral. Secretaría del Trabajo y Previsión Social. México. Recuperado de <a href="https://inclusionlaboral.gob.mx" class="text-blue-500 hover:underline">https://inclusionlaboral.gob.mx</a>. (Portal oficial con recursos sobre inclusión laboral).</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-blue-800 text-white text-center py-4">
-    <p>© 2025 Proyecto Inclusivo – Todos los derechos reservados.</p>
+    <p>© 2025 Equipo V – Todos los derechos reservados.</p>
   </footer>
 
 </body>
+
+<script>
+  window.onload = function () {
+    const womenTechnicalRolesChart = new Chart(document.getElementById('womenTechnicalRolesChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025'],
+        datasets: [{
+          label: '% Mujeres en Roles Técnicos',
+          data: [20, 25, 30, 35],
+          backgroundColor: ['#1E3A8A', '#3B82F6', '#60A5FA', '#93C5FD'],
+          borderColor: ['#1E3A8A', '#3B82F6', '#60A5FA', '#93C5FD'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            title: { display: true, text: 'Porcentaje (%)' }
+          },
+          x: { title: { display: true, text: 'Trimestre' } }
+        },
+        plugins: {
+          legend: { display: true },
+          title: { display: true, text: '% Mujeres en Roles Técnicos' }
+        }
+      }
+    });
+
+    const inclusiveEnvironmentChart = new Chart(document.getElementById('inclusiveEnvironmentChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Inclusivo', 'Neutral', 'No Inclusivo'],
+        datasets: [{
+          data: [75, 20, 5],
+          backgroundColor: ['#10B981', '#FBBF24', '#EF4444'],
+          borderColor: ['#064E3B', '#B45309', '#991B1B'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { position: 'bottom' },
+          title: { display: true, text: '% Empleados que Reportan un Entorno Inclusivo' }
+        }
+      }
+    });
+
+    const deiTrainingHoursChart = new Chart(document.getElementById('deiTrainingHoursChart'), {
+      type: 'bar',
+      data: {
+        labels: ['2023', '2024', '2025'],
+        datasets: [{
+          label: 'Prom. Horas de Capacitación en DEI',
+          data: [4, 6, 8],
+          backgroundColor: ['#6B7280', '#8B5CF6', '#A78BFA'],
+          borderColor: ['#6B7280', '#8B5CF6', '#A78BFA'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Horas por Empleado' }
+          },
+          x: { title: { display: true, text: 'Año' } }
+        },
+        plugins: {
+          legend: { display: true },
+          title: { display: true, text: 'Promedio de Horas de Capacitación en DEI por Empleado' }
+        }
+      }
+    });
+
+    const inclusiveJobPostingsChart = new Chart(document.getElementById('inclusiveJobPostingsChart'), {
+      type: 'line',
+      data: {
+        labels: ['Ene 2025', 'Feb 2025', 'Mar 2025', 'Abr 2025'],
+        datasets: [{
+          label: '% Ofertas Laborales con Lenguaje Inclusivo',
+          data: [80, 85, 90, 95],
+          backgroundColor: '#2DD4BF',
+          borderColor: '#0D9488',
+          fill: false,
+          tension: 0.4
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            title: { display: true, text: 'Porcentaje (%)' }
+          },
+          x: { title: { display: true, text: 'Mes' } }
+        },
+        plugins: {
+          legend: { display: true },
+          title: { display: true, text: '% Ofertas Laborales con Lenguaje Inclusivo' }
+        }
+      }
+    });
+
+    const accessibilityRequestsChart = new Chart(document.getElementById('accessibilityRequestsChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Atendidas', 'Pendientes', 'Rechazadas'],
+        datasets: [{
+          data: [90, 8, 2],
+          backgroundColor: ['#3B82F6', '#F97316', '#6B7280'],
+          borderColor: ['#1E3A8A', '#C2410C', '#4B5563'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { position: 'bottom' },
+          title: { display: true, text: '% Solicitudes de Accesibilidad Atendidas' }
+        }
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Optional: only animate once
+        }
+      });
+    }, {
+      threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    document.querySelectorAll('.animate-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    const timelineCards = document.querySelectorAll('.snap-center[data-modal]');
+  const modals = document.querySelectorAll('.fixed[role="dialog"]');
+  const closeButtons = document.querySelectorAll('.close-modal');
+
+  // Open modal when clicking a timeline card
+  timelineCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const modalId = card.getAttribute('data-modal');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('opacity-100');
+        const modalContent = modal.querySelector('.transform');
+        modalContent.classList.remove('scale-95');
+        modalContent.classList.add('scale-100');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+    });
+  });
+
+  // Close modal when clicking the "X" button
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.fixed[role="dialog"]');
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      const modalContent = modal.querySelector('.transform');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+      }, 300); // Match transition duration
+    });
+  });
+
+  // Close modal when clicking outside
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        const modalContent = modal.querySelector('.transform');
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          document.body.style.overflow = ''; // Restore scrolling
+        }, 300); // Match transition duration
+      }
+    });
+  });
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('translate-y-0');
+    mobileMenu.classList.toggle('-translate-y-4');
+    hamburgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    document.body.style.overflow = isExpanded ? '' : 'hidden'; // Toggle scrolling
+  });
+
+  // Close menu when clicking a link (for mobile)
+  window.closeMenu = () => {
+    if (!mobileMenu.classList.contains('hidden')) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('translate-y-0');
+      mobileMenu.classList.add('-translate-y-4');
+      hamburgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+  };
+  };
+
+</script>
+
+
 </html>
